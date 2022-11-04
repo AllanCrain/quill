@@ -76,8 +76,8 @@ angular.module('reg')
         .then(response => {
           updatePage(response.data);
         });
-    }]);
 
-    $('.ui.accordion')
-      .accordion()
-    ;
+      $('.ui.accordion')
+        .accordion()
+      ;
+    }]);

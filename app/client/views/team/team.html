@@ -54,7 +54,7 @@
 
           <div class="field">
             <button
-              class="ui fluid pink button"
+              class="ui fluid green button"
               ng-click="createProject()">
               Join or Create Team
             </button>
@@ -106,7 +106,15 @@
       <div class="ui segment">
         <div  class="ui accordion" ng-repeat="project in projects">
           <div class="title"><i class="dropdown icon"></i>{{project.teamCode}}</div>
-          <div class="content">{{project.description}}</div>
+          <div class="content">
+            <div>{{project.description}}</div>
+            <div>Slack Group: <a href="https://virtually-human.slack.com/app_redirect?channel={{project.slackGroup}}">project.slackGroup</a></div>
+            <button ng-show="!user.teamCode && regIsOpen"
+                    class="ui fluid green button"
+                    ng-click="joinTeam(project.teamCode)">Join Team</button>
+            <div ng-show="currentUser.admin"> Delete </div>
+          </div>
+
         </div>
       </div>
     </div>
