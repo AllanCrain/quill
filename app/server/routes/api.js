@@ -288,7 +288,7 @@ module.exports = function(router) {
    * Get a user's team member's names. Uses the code associated
    * with the user making the request.
    */
-  router.get('/teams/:code', isOwnerOrAdmin, function(req, res){
+  router.get('/teams/:code', function(req, res){
     var code = req.params.code;
     ProjectController.getByCode(code, defaultResponse(req, res));
   });
@@ -299,7 +299,7 @@ module.exports = function(router) {
    * Get a user's team member's names. Uses the code associated
    * with the user making the request.
    */
-  router.get('/teams', isOwnerOrAdmin, function(req, res){
+  router.get('/teams', function(req, res){
     ProjectController.getAll(defaultResponse(req, res));
   });
 
