@@ -51,9 +51,9 @@ angular.module('reg')
           });
       };
 
-      $scope.deleteTeam = function(){
+      $scope.deleteTeam = function(code){
         ProjectService
-          .deleteTeam($scope.code);
+          .deleteTeam(code);
       };
 
       $scope.createProject = function(){
