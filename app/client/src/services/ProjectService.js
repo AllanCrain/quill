@@ -18,7 +18,7 @@ angular.module('reg')
       },
 
 
-      update: function(id, title, description, slackGroup){
+      create: function(id, title, description, slackGroup){
         return $http.put(base + id, {
           title,
           description,

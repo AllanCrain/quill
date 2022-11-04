@@ -47,6 +47,17 @@ angular.module('reg')
           });
       };
 
+      $scope.createProject = function(){
+        ProjectService
+          .create($scope.code, $scope.title, $scope.description, $scope.slackGroup)
+          .then(response => {
+            updatePage(response.data);
+            $scope.joinTeam($scope.code);
+          }, response => {
+            $scope.error = response.data.message;
+          });
+      };
+
       $scope.leaveTeam = function(){
         UserService
           .leaveTeam()
