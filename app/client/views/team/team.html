@@ -111,10 +111,9 @@
       </div>
 
       <div class="ui segment">
-        <div ng-repeat="project in projects">
-          <div class="title">{{projects.teamCode}}</div>
-          Expand
-          <div class="ui divider"></div>
+        <div  class="ui accordion" ng-repeat="project in projects">
+          <div class="title"><i class="dropdown icon"></i>s{{project.teamCode}}</div>
+          <div class="content">{{project.description}}</div>
         </div>
       </div>
     </div>
