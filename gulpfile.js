@@ -52,17 +52,17 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('app/client/build'));
 });
 
-gulp.task('build', ['js', 'sass'], function() {
+gulp.task('build', gulp.series('js', 'sass', function() {
   // Yup, build the js and sass.
-});
+}));
 
-gulp.task('watch', ['js', 'sass'], function() {
+gulp.task('watch', gulp.series('js', 'sass', function() {
   gulp.watch('app/client/src/**/*.js', ['js']);
   gulp.watch('app/client/views/**/*.js', ['js']);
   gulp.watch('app/client/stylesheets/**/*.scss', ['sass']);
-});
+}));
 
-gulp.task('server', ['watch'], function() {
+gulp.task('server',  gulp.series('watch', function() {
   nodemon({
     script: 'app.js',
     env: { 'NODE_ENV': process.env.NODE_ENV || 'DEV' },
@@ -70,4 +70,4 @@ gulp.task('server', ['watch'], function() {
       'app/server'
     ]
   });
-});
+}));
