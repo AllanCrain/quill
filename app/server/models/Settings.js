@@ -25,7 +25,7 @@ var schema = new mongoose.Schema({
   whitelistedEmails: {
     type: [String],
     select: false,
-    default: ['.edu'],
+    default: ['vhslab.com'],
   },
   waitlistText: {
     type: String
