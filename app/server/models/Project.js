@@ -9,17 +9,9 @@ var schema = new mongoose.Schema({
     min: 0,
     max: 140,
   },
-  title: {
-    type: String,
-    required: true,
-    unique: true,
-    min: 0,
-    max: 140,
-  },
   description: {
     type: String,
     required: true,
-    unique: true,
     min: 0,
     max: 140,
   },

@@ -277,11 +277,10 @@ module.exports = function(router) {
 
   router.put('/teams/:code', function(req, res){
     var code = req.params.code;
-    var title = req.body.title;
     var description = req.body.description;
     var slackGroup = req.body.slackGroup;
 
-    ProjectController.createProject(code, title, description, slackGroup, defaultResponse(req, res));
+    ProjectController.createProject(code, description, slackGroup, defaultResponse(req, res));
 
   });
 

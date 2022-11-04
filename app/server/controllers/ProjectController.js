@@ -6,13 +6,7 @@ var ProjectController = {};
 
 var maxTeamSize = process.env.TEAM_MAX_SIZE || 4;
 
-ProjectController.createProject = function(teamCode, title, description, slackGroup, callback) {
-
-  if (typeof title !== "string"){
-    return callback({
-      message: "title must be a string."
-    });
-  }
+ProjectController.createProject = function(teamCode, description, slackGroup, callback) {
   if (typeof teamCode !== "string"){
     return callback({
       message: "teamCode must be a string."
@@ -31,7 +25,6 @@ ProjectController.createProject = function(teamCode, title, description, slackGr
 
   var p = new Project();
   p.teamCode = teamCode;
-  p.title = title;
   p.description = description;
   p.slackGroup = slackGroup;
   p.save(function(err){
