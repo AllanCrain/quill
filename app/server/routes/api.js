@@ -294,6 +294,15 @@ module.exports = function(router) {
     ProjectController.getByCode(code, defaultResponse(req, res));
   });
 
+  /**
+   * Get a user's team member's names. Uses the code associated
+   * with the user making the request.
+   */
+  router.get('/teams/:code/teammembers', function(req, res){
+    var code = req.params.code;
+    UserController.getTeamMembers(code, defaultResponse(req, res));
+  });
+
 
 
   /**

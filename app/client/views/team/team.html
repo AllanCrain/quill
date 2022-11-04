@@ -11,7 +11,7 @@
       </div>
 
 
-      {{projects}}
+
 
       <div class="ui segment">
         <div
@@ -108,6 +108,14 @@
 
         </div>
 
+      </div>
+
+      <div class="ui segment">
+        <div ng-repeat="project in projects">
+          <div class="title">{{projects.teamCode}}</div>
+          Expand
+          <div class="ui divider"></div>
+        </div>
       </div>
     </div>
   </div>

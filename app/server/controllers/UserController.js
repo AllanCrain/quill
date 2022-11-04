@@ -444,6 +444,15 @@ UserController.getTeammates = function(id, callback){
   });
 };
 
+UserController.getTeamMembers = function(code, callback){
+  User
+    .find({
+      teamCode: code
+    })
+    .select('profile.name')
+    .exec(callback);
+};
+
 /**
  * Given a team code and id, join a team.
  * @param  {String}   id       Id of the user joining/creating
