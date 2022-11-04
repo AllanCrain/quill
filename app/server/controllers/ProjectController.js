@@ -31,6 +31,9 @@ ProjectController.createProject = function(teamCode, title, description, slackGr
 
   var p = new Project();
   p.teamCode = teamCode;
+  p.title = title;
+  p.description = description;
+  p.slackGroup = slackGroup;
   p.save(function(err){
     if (err){
       // Duplicate key error codes
