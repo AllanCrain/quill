@@ -44,11 +44,5 @@ schema.findOneByTeamCode = function(teamCode){
   });
 };
 
-schema.deleteOneByTeamCode = function(teamCode){
-  return this.deleteOne({
-    teamCode: teamCode.toLowerCase()
-  });
-};
-
 
 module.exports = mongoose.model('Project', schema);
