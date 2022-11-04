@@ -68,7 +68,7 @@ ProjectController.getAll = function (callback) {
 ProjectController.delete = function (teamCode, callback) {
   Project.deleteOne({
     teamCode: teamCode
-  });
+  }, callback);
 };
 
 module.exports = ProjectController;
