@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var browserify = require('browserify');
 var browserifyNgAnnotate = require('browserify-ngannotate');
 var buffer = require('gulp-buffer');
