@@ -20,6 +20,10 @@ angular.module('reg')
 
       function updatePage(data){
         $scope.projects = data;
+
+        $('.ui.accordion')
+          .accordion()
+        ;
       }
 
       function _populateTeammates() {
@@ -82,6 +86,7 @@ angular.module('reg')
           updatePage(response.data);
         });
 
+      // oh god jQuery hack
       $('.ui.accordion')
         .accordion()
       ;
