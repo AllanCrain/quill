@@ -60,7 +60,7 @@ angular.module('reg')
         ProjectService
           .create($scope.code, "TODO", $scope.description, $scope.slackGroup)
           .then(response => {
-            updatePage(response.data);
+            updatePage([...$scope.projects, response.data]);
             $scope.joinTeam($scope.code);
           }, response => {
             $scope.error = response.data.message;
