@@ -47,6 +47,11 @@ angular.module('reg')
           });
       };
 
+      $scope.deleteTeam = function(){
+        ProjectService
+          .deleteTeam($scope.code);
+      };
+
       $scope.createProject = function(){
         ProjectService
           .create($scope.code, "TODO", $scope.description, $scope.slackGroup)

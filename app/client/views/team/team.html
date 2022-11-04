@@ -112,7 +112,10 @@
             <button ng-show="!user.teamCode && regIsOpen"
                     class="ui fluid green button"
                     ng-click="joinTeam(project.teamCode)">Join Team</button>
-            <div ng-show="currentUser.admin"> Delete </div>
+            <div ng-show="currentUser.admin">
+              <button ng-show="!user.teamCode && regIsOpen"
+                      class="ui fluid red button"
+                      ng-click="deleteTeam(project.teamCode)">Delete Team</button> </div>
           </div>
 
         </div>
