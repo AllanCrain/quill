@@ -49,7 +49,7 @@ angular.module('reg')
 
       $scope.createProject = function(){
         ProjectService
-          .create($scope.code, $scope.title, $scope.description, $scope.slackGroup)
+          .create($scope.code, "TODO", $scope.description, $scope.slackGroup)
           .then(response => {
             updatePage(response.data);
             $scope.joinTeam($scope.code);
@@ -77,3 +77,7 @@ angular.module('reg')
           updatePage(response.data);
         });
     }]);
+
+    $('.ui.accordion')
+      .accordion()
+    ;
