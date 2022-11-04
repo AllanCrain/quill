@@ -45,13 +45,11 @@
             "description": "Limits the number of users that can join a team",
             "value": "4"
         },
+        "DATABASE": "mongodb+srv://acrain:VHSHackathonFTW@cluster0.uqffilu.mongodb.net/?retryWrites=true&w=majority",
         "SLACK_HOOK": {
             "description": "Used to send error messages to your Slack team when the API catches an error",
             "value": "https://hooks.slack.com/services/your-api-key"
         }
     },
-    "addons": [
-        "mongolab"
-    ],
     "keywords": ["quill", "node", "express", "mongo"]
 }
