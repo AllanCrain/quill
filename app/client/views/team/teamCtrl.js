@@ -6,7 +6,7 @@ angular.module('reg')
     'Utils',
     'UserService',
     'TEAM',
-    function($scope, currentUser, settings, Utils, UserService, TEAM){
+    function($scope, currentUser, settings, Utils, UserService, ProjectService, TEAM){
       // Get the current user's most recent data.
       var Settings = settings.data;
 
@@ -15,6 +15,11 @@ angular.module('reg')
       $scope.user = currentUser.data;
 
       $scope.TEAM = TEAM;
+
+
+      function updatePage(data){
+        $scope.projects = data;
+      }
 
       function _populateTeammates() {
         UserService
@@ -53,4 +58,10 @@ angular.module('reg')
           });
       };
 
+
+      ProjectService
+        .getAll()
+        .then(response => {
+          updatePage(response.data);
+        });
     }]);

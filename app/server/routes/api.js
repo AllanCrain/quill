@@ -1,4 +1,5 @@
 var UserController = require('../controllers/UserController');
+var ProjectController = require('../controllers/ProjectController');
 var SettingsController = require('../controllers/SettingsController');
 var User = require('../models/User');
 var json2csv = require('json2csv').parse;
@@ -267,10 +268,41 @@ module.exports = function(router) {
    * Get a user's team member's names. Uses the code associated
    * with the user making the request.
    */
-  router.get('/users/:id/team', isOwnerOrAdmin, function(req, res){
+  router.get('/users/:id/team', function(req, res){
     var id = req.params.id;
     UserController.getTeammates(id, defaultResponse(req, res));
   });
+
+
+  router.put('/teams/:code', function(req, res){
+    var code = req.params.code;
+    var title = req.body.title;
+    var description = req.body.description;
+    var slackGroup = req.body.slackGroup;
+
+    ProjectController.createProject(code, title, description, slackGroup, defaultResponse(req, res));
+
+  });
+
+  /**
+   * Get a user's team member's names. Uses the code associated
+   * with the user making the request.
+   */
+  router.get('/teams/:code', isOwnerOrAdmin, function(req, res){
+    var code = req.params.code;
+    ProjectController.getByCode(code, defaultResponse(req, res));
+  });
+
+
+
+  /**
+   * Get a user's team member's names. Uses the code associated
+   * with the user making the request.
+   */
+  router.get('/teams', isOwnerOrAdmin, function(req, res){
+    ProjectController.getAll(defaultResponse(req, res));
+  });
+
 
   /**
    * Update a teamcode. Join/Create a team here.
