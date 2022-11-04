@@ -101,12 +101,13 @@
       </div>
 
       <div class="ui segment">
-        <div class="ui styled accordion">
+        <div class="ui accordion">
           <div ng-repeat="project in projects">
             <div class="title"><i class="dropdown icon"></i>{{project.teamCode}}</div>
             <div class="content">
-              <div>{{project.description}}</div>
-              <div>Slack Group: <a href="https://virtually-human.slack.com/app_redirect?channel={{project.slackGroup}}">{{project.slackGroup}}</a></div>
+              <p><strong>{{project.description}}</strong></p>
+              </br>
+              <p><strong>Slack Group:</strong> <a href="https://virtually-human.slack.com/app_redirect?channel={{project.slackGroup}}">{{project.slackGroup}}</a></p>
               <div ng-if="!user.teamCode && regIsOpen">
                 <button
                         class="ui fluid green button"

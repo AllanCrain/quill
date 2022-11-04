@@ -14,11 +14,23 @@
   <div ng-show="currentUser.verified">
 
     <div
+            ui-sref-active="active"
+            ui-sref="app.about"
+            class="item">
+      About / Rules
+    </div>
+    <div
+            ui-sref-active="active"
+            ui-sref="app.schedule"
+            class="item">
+      Schedule
+    </div>
+    <div
       ui-sref-active="active"
       ui-sref="app.application"
       ng-show="!currentUser.status.declined"
       class="item">
-      Application
+      Registration
     </div>
 
     <div

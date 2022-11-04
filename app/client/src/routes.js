@@ -3,6 +3,7 @@ const SettingsService = require('./services/SettingsService.js');
 const UserService = require('./services/UserService.js');
 const ProjectService = require('./services/ProjectService.js');
 
+const AboutCtrl = require('../views/about/aboutCtrl.js');
 const AdminCtrl = require('../views/admin/adminCtrl.js');
 const AdminSettingsCtrl = require('../views/admin/settings/adminSettingsCtrl.js');
 const AdminStatsCtrl = require('../views/admin/stats/adminStatsCtrl.js');
@@ -11,6 +12,7 @@ const AdminUsersCtrl = require('../views/admin/users/adminUsersCtrl.js');
 const ApplicationCtrl = require('../views/application/applicationCtrl.js');
 const ConfirmationCtrl = require('../views/confirmation/confirmationCtrl.js');
 const DashboardCtrl = require('../views/dashboard/dashboardCtrl.js');
+const ScheduleCtrl = require('../views/schedule/scheduleCtrl.js');
 const LoginCtrl = require('../views/login/loginCtrl.js');
 const ResetCtrl = require('../views/reset/resetCtrl.js');
 const SidebarCtrl = require('../views/sidebar/sidebarCtrl.js');
@@ -68,6 +70,32 @@ angular.module('reg')
         url: "/",
         templateUrl: "views/dashboard/dashboard.html",
         controller: 'DashboardCtrl',
+        resolve: {
+          currentUser: function(UserService){
+            return UserService.getCurrentUser();
+          },
+          settings: function(SettingsService){
+            return SettingsService.getPublicSettings();
+          }
+        },
+      })
+      .state('app.schedule', {
+        url: "/",
+        templateUrl: "views/schedule/schedule.html",
+        controller: 'ScheduleCtrl',
+        resolve: {
+          currentUser: function(UserService){
+            return UserService.getCurrentUser();
+          },
+          settings: function(SettingsService){
+            return SettingsService.getPublicSettings();
+          }
+        },
+      })
+      .state('app.about', {
+        url: "/",
+        templateUrl: "views/about/about.html",
+        controller: 'AboutCtrl',
         resolve: {
           currentUser: function(UserService){
             return UserService.getCurrentUser();
