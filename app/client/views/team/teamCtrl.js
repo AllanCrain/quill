@@ -5,6 +5,7 @@ angular.module('reg')
     'settings',
     'Utils',
     'UserService',
+    'ProjectService',
     'TEAM',
     function($scope, currentUser, settings, Utils, UserService, ProjectService, TEAM){
       // Get the current user's most recent data.
