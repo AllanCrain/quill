@@ -331,6 +331,15 @@ module.exports = function(router) {
   /**
    * Remove a user from a team.
    */
+  router.delete('/teams/:code', isAdmin, function(req, res){
+    var code = req.params.code;
+
+    ProjectController.delete(code, defaultResponse(req, res));
+  });
+
+  /**
+   * Remove a user from a team.
+   */
   router.delete('/users/:id/team', isOwnerOrAdmin, function(req, res){
     var id = req.params.id;
 
