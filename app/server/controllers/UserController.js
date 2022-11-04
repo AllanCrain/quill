@@ -51,10 +51,16 @@ function canRegister(email, password, callback){
 
     // Check for emails.
     Settings.getWhitelistedEmails(function(err, emails){
+      console.log("emails");
+      console.log(emails);
       if (err || !emails){
         return callback(err);
       }
       for (var i = 0; i < emails.length; i++) {
+        console.log("email");
+        console.log(email);
+        console.log(validator.isEmail(email));
+        console.log(emails[i]);
         if (validator.isEmail(email) && endsWith(emails[i], email)){
           return callback(null, true);
         }
