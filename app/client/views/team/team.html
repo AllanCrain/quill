@@ -109,11 +109,11 @@
             <div class="title"><i class="dropdown icon"></i>{{project.teamCode}}</div>
             <div class="content">
               <div>{{project.description}}</div>
-              <div>Slack Group: <a href="https://virtually-human.slack.com/app_redirect?channel={{project.slackGroup}}">project.slackGroup</a></div>
+              <div>Slack Group: <a href="https://virtually-human.slack.com/app_redirect?channel={{project.slackGroup}}">{{project.slackGroup}}</a></div>
               <button ng-show="!user.teamCode && regIsOpen"
                       class="ui fluid green button"
                       ng-click="joinTeam(project.teamCode)">Join Team</button>
-              <div ng-show="currentUser.admin">
+              <div ng-show="user.admin">
                 <button ng-show="!user.teamCode && regIsOpen"
                         class="ui fluid red button"
                         ng-click="deleteTeam(project.teamCode)">Delete Team</button> </div>
