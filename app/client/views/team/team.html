@@ -1,6 +1,6 @@
 <div id="team" class="page">
   <div class="divided title">
-    Team
+    Projects
   </div>
   <div class="ui stackable centered page grid">
     <div class="column">
@@ -100,7 +100,9 @@
         </div>
 
       </div>
-
+      <div class="divided title">
+        Existing Teams:
+      </div>
       <div class="ui segment">
         <div class="ui accordion">
           <div ng-repeat="project in projects">
@@ -119,6 +121,7 @@
                         class="ui fluid red button"
                         ng-click="deleteTeam(project.teamCode)">Delete Team</button> </div>
             </div>
+            <div class="ui divider"></div>
 
           </div>
         </div>
