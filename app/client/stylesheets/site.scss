@@ -53,6 +53,8 @@ $brand-tertiary: $tertiary;
 
 html,
 body {
+  background: #22262d;
+  color: white;
   height: 100%;
   width: 100%;
   font-size: 1.02em;
@@ -64,6 +66,8 @@ body {
   font-weight: 300;
 
   > .container {
+    background: #22262d;
+    color: white;
     width: 100%;
     height: 100%;
   }
@@ -122,5 +126,21 @@ fieldset {
 
 .ui.search >.results {
   width: 100%;
+}
+
+.ui.form .field > label {
+  color: white!important;
+}
+
+.ui.segment {
+  padding: 36px 36px 12px 36px;
+  background: #22262d!important;
+  color: white!important;
+}
+
+.ui.accordion .title {
+  color: white!important;
+  font-size: 1.4em!important;
+
 }
 // @import 'animation';
