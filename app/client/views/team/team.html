@@ -110,7 +110,7 @@
           <div ng-repeat="project in projects">
             <div class="title"><i class="dropdown icon"></i>{{project.teamCode}}</div>
             <div class="content">
-              <p><strong>{{project.description}}</strong></p>
+              <p><strong style="white-space: pre-line">{{project.description}}</strong></p>
               </br>
               <p><strong>Members: {{project.members.join(', ') || "None"}}</strong></p>
               </br>
