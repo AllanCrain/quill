@@ -4,7 +4,7 @@ var moment = require('moment');
 
 var ProjectController = {};
 
-var maxTeamSize = process.env.TEAM_MAX_SIZE || 4;
+var maxTeamSize = process.env.TEAM_MAX_SIZE || 3;
 
 ProjectController.createProject = function(teamCode, description, slackGroup, callback) {
   if (typeof teamCode !== "string"){
