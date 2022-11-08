@@ -58,7 +58,7 @@ angular.module('reg')
 
       $scope.createProject = function(){
         ProjectService
-          .create($scope.code, "TODO", $scope.description, $scope.slackGroup)
+          .create($scope.code, $scope.description, $scope.slackGroup, $scope.user.profile.name)
           .then(response => {
             updatePage([...$scope.projects, response.data]);
             $scope.joinTeam($scope.code);

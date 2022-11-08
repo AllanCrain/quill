@@ -21,11 +21,11 @@ angular.module('reg')
         return $http.delete(base + id);
       },
 
-      create: function(id, title, description, slackGroup){
+      create: function(id, description, slackGroup, createdBy){
         return $http.put(base + id, {
-          title,
           description,
-          slackGroup
+          slackGroup,
+          createdBy
         });
       },
     };

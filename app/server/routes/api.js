@@ -305,8 +305,9 @@ module.exports = function(router) {
     var code = req.params.code;
     var description = req.body.description;
     var slackGroup = req.body.slackGroup;
+    var createdBy = req.body.createdBy;
 
-    ProjectController.createProject(code, description, slackGroup, defaultResponse(req, res));
+    ProjectController.createProject(code, description, slackGroup, createdBy, defaultResponse(req, res));
 
   });
 
@@ -457,7 +458,7 @@ module.exports = function(router) {
    *   allowMinors: Boolean
    * }
    */
-  router.get('/settings', isUser, function(req, res){
+  router.get('/settings', function(req, res){
     SettingsController.getPublicSettings(defaultResponse(req, res));
   });
 

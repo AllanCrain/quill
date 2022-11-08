@@ -22,6 +22,12 @@ var schema = new mongoose.Schema({
     min: 0,
     max: 140,
   },
+  createdBy: {
+    type: String,
+    required: true,
+    min: 0,
+    max: 140,
+  },
 
   lastUpdated: {
     type: Number,

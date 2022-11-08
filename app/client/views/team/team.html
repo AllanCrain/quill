@@ -114,6 +114,7 @@
               </br>
               <p><strong>Members: {{project.members.join(', ') || "None"}}</strong></p>
               </br>
+              <p><strong>Created By:</strong>{{project.createdBy}}</p>
               <p><strong>Slack Group:</strong> <a href="https://virtually-human.slack.com/app_redirect?channel={{project.slackGroup}}">{{project.slackGroup}}</a></p>
               <div ng-if="!user.teamCode && regIsOpen">
                 <button
