@@ -80,7 +80,7 @@ angular.module('reg')
         },
       })
       .state('app.schedule', {
-        url: "/",
+        url: "/schedule",
         templateUrl: "views/schedule/schedule.html",
         controller: 'ScheduleCtrl',
         resolve: {
@@ -93,7 +93,7 @@ angular.module('reg')
         },
       })
       .state('app.about', {
-        url: "/",
+        url: "/about",
         templateUrl: "views/about/about.html",
         controller: 'AboutCtrl',
         resolve: {
