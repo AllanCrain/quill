@@ -40,6 +40,32 @@ module.exports = function(router) {
   }
 
   /**
+   * Using the access token provided, check to make sure that
+   * you are, indeed, isUser.
+   */
+  function isUser(req, res, next){
+
+    var token = getToken(req);
+
+    UserController.getByToken(token, function(err, user){
+
+      if (err) {
+        return res.status(500).send(err);
+      }
+
+      if (user){
+        req.user = user;
+        return next();
+      }
+
+      return res.status(401).send({
+        message: 'Get outta here, punk!'
+      });
+
+    });
+  }
+
+  /**
    * [Users API Only]
    *
    * Check that the id param matches the id encoded in the
@@ -269,7 +295,7 @@ module.exports = function(router) {
    * Get a user's team member's names. Uses the code associated
    * with the user making the request.
    */
-  router.get('/users/:id/team', function(req, res){
+  router.get('/users/:id/team', isUser, function(req, res){
     var id = req.params.id;
     UserController.getTeammates(id, defaultResponse(req, res));
   });
@@ -288,7 +314,7 @@ module.exports = function(router) {
    * Get a user's team member's names. Uses the code associated
    * with the user making the request.
    */
-  router.get('/teams/:code', function(req, res){
+  router.get('/teams/:code', isUser, function(req, res){
     var code = req.params.code;
     ProjectController.getByCode(code, defaultResponse(req, res));
   });
@@ -297,7 +323,7 @@ module.exports = function(router) {
    * Get a user's team member's names. Uses the code associated
    * with the user making the request.
    */
-  router.get('/teams/:code/teammembers', function(req, res){
+  router.get('/teams/:code/teammembers', isUser, function(req, res){
     var code = req.params.code;
     UserController.getTeamMembers(code, defaultResponse(req, res));
   });
@@ -308,7 +334,7 @@ module.exports = function(router) {
    * Get a user's team member's names. Uses the code associated
    * with the user making the request.
    */
-  router.get('/teams', function(req, res){
+  router.get('/teams', isUser, function(req, res){
     ProjectController.getAll(defaultResponse(req, res));
   });
 
@@ -431,7 +457,7 @@ module.exports = function(router) {
    *   allowMinors: Boolean
    * }
    */
-  router.get('/settings', function(req, res){
+  router.get('/settings', isUser, function(req, res){
     SettingsController.getPublicSettings(defaultResponse(req, res));
   });
 
