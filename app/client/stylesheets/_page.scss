@@ -24,6 +24,20 @@
         border-width: 2px;
       }
     }
+    &.medium {
+      font-size: 1.5em;
+      letter-spacing: 4px;
+      &:after {
+        border-width: 2px;
+      }
+    }
+    &.large {
+      font-size: 2em;
+      letter-spacing: 4px;
+      &:after {
+        border-width: 2px;
+      }
+    }
   }
 
   .form {
