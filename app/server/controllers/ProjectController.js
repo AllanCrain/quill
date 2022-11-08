@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var Project = require('../models/Project');
 var moment = require('moment');
+var User = require('../models/User');
 
 var ProjectController = {};
 
@@ -56,12 +57,35 @@ ProjectController.getByCode = function (teamCode, callback) {
 };
 
 /**
- * Get all users.
+ * Get all projects.
  * It's going to be a lot of data, so make sure you want to do this.
  * @param  {Function} callback args(err, user)
  */
 ProjectController.getAll = function (callback) {
-  Project.find({}, callback);
+  Project.find({})
+  .exec(function(err, projects) {
+    User.find({})
+      .exec(function(err, users) {
+        console.log(projects);
+
+        const projectsAndMembers = projects.map((project) => {
+          const members = users.filter((user) => {
+            return user.teamCode == project.teamCode;
+          }).map((user) => {
+            return user.profile.name;
+          });
+          let projectWithMembers = JSON.parse(JSON.stringify(project));
+          projectWithMembers.members = members;
+          return projectWithMembers;
+        });
+        return callback(
+          null,
+          projectsAndMembers
+        );
+
+      });
+    }
+  );
 };
 
 
